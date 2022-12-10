@@ -3,7 +3,7 @@ import { NextPage } from "next";
 export const Login: NextPage = () => {
     return (
         <div className="container-login">
-            <img src="/logo.svg" alt="Logo Fiap"/>
+            <img src="/logo.svg" alt="Logo Fiap" className="logo"/>
             <div className="form">
                 <div>
                     <img src="/mail.svg" alt="Login"/>
