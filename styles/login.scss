@@ -10,6 +10,15 @@
 
     .form{
         padding: 10px;
+
+        p{
+            color: $errorColor;
+            font-size: 16px;
+            letter-spacing: 0.05em;
+            text-align: center;
+            font-weight: bold;
+        }
+
         div{
             display: flex;
             padding: 0px 10px;
