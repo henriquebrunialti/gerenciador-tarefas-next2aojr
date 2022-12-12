@@ -2,7 +2,11 @@ import { NextPage } from "next";
 import { useState } from 'react';
 import { executeRequest } from "../services/api";
 
-export const Login: NextPage = () => {
+type LoginProps = {
+    setToken(s:string):void
+}
+
+export const Login: NextPage<LoginProps> = ({setToken}) => {
 
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
@@ -29,6 +33,7 @@ export const Login: NextPage = () => {
                 localStorage.setItem('accessToken', obj.token);
                 localStorage.setItem('name', obj.name);
                 localStorage.setItem('email', obj.email);
+                setToken(obj.token);
             }
         } catch (e: any) {
             console.log('Ocorreu erro ao efetuar login:', e);
