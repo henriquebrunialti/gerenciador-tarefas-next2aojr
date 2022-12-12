@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import { Header } from "../components/Header";
 
 type HomeProps = {
     setToken(s:string):void
@@ -13,8 +14,7 @@ export const Home: NextPage<HomeProps> = ({setToken}) => {
 
     return (
         <>
-            <h1>Home</h1>
-            <img src="/exit-desktop.svg" alt="Sair" onClick={sair}/>
+            <Header sair={sair}/>
         </>
     );
 }
