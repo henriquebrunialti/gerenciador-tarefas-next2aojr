@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Filter } from "../components/Filter";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import { List } from "../components/List";
 import { executeRequest } from "../services/api";
 
 type HomeProps = {
@@ -30,11 +31,11 @@ export const Home: NextPage<HomeProps> = ({setToken}) => {
             let query = '?status='+status;
 
             if(previsionDateStart){
-                query += '&finishPrevisionStart'+previsionDateStart;
+                query += '&finishPrevisionStart='+previsionDateStart;
             }
 
             if(previsionDateEnd){
-                query += '&finishPrevisionEnd'+previsionDateEnd;
+                query += '&finishPrevisionEnd='+previsionDateEnd;
             }
 
             const result = await executeRequest('task'+query, 'GET');
@@ -57,6 +58,7 @@ export const Home: NextPage<HomeProps> = ({setToken}) => {
                 setPrevisionDateEnd={setPrevisionDateEnd}
                 setStatus={setStatus}
             />
+            <List tasks={list}/>
             <Footer />
         </>
     );
