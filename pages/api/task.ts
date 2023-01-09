@@ -95,6 +95,8 @@ const saveTask = async (req: NextApiRequest, res: NextApiResponse<DefaultMsgResp
             return res.status(400).json({ error: 'Data de previsao invalida ou menor que hoje' });
         }
 
+        task.finishPrevisionDate = moment(task.finishPrevisionDate).utc().toString();
+
         const final = {
             ...task,
             userId,
@@ -148,16 +150,20 @@ const updateTask = async (req: NextApiRequest, res: NextApiResponse<DefaultMsgRe
         }
 
         if (task.finishPrevisionDate) {
-            taskFound.finishPrevisionDate = task.finishPrevisionDate;
+            taskFound.finishPrevisionDate = moment(task.finishPrevisionDate).utc().toString();
         }
 
+
         if (task.finishDate) {
-            taskFound.finishDate = task.finishDate;
+            taskFound.finishDate = moment(task.finishDate).utc().toString();
         }
+
+        console.log(task)
 
         await TaskModel.findByIdAndUpdate({ _id: taskFound._id }, taskFound);
         return res.status(200).json({ message: 'Tarefa atualizada com sucesso' });
     }
+    console.log('here?')
 
     return res.status(400).json({ error: 'Parametro de entrada invalidos' });
 }

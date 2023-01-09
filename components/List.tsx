@@ -12,7 +12,6 @@ type ListProps = {
 }
 
 export const List: NextPage<ListProps> = ({ tasks, getFilteredData }) => {
-
     // STATES MODAL
     const [showModal, setShowModal] = useState(false);
     const [loading, setLoading] = useState(false);
@@ -115,9 +114,9 @@ export const List: NextPage<ListProps> = ({ tasks, getFilteredData }) => {
                     {errorMsg && <p className="error">{errorMsg}</p>}
                     <input type="text" placeholder="Nome da tarefa"
                         value={name} onChange={e => setName(e.target.value)} />
-                    <input type="date" placeholder="Previsão de conclusão"
+                    <input type="date" placeholder="Previsão de conclusão: " 
                         value={finishPrevisionDate} onChange={e => setFinishPrevisionDate(e.target.value)} />
-                    <input type="date" placeholder="Data de conclusão"
+                    <input type="date" placeholder="Data de conclusão: "
                         value={finishDate} onChange={e => setFinishDate(e.target.value)} />
                 </Modal.Body>
                 <Modal.Footer>

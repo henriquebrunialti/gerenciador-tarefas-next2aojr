@@ -63,6 +63,17 @@ input, select{
     }
 }
 
+  input[type="date"]:before {
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
+  }
+  input[type="date"]:focus:before,
+  input[type="date"]:hover:before,
+  input[type="date"]:valid:before {
+    content: "";
+  }
+
 @media screen and (min-width: $mediaQueryDesktop) {
     input, select {
         border-radius: 8px;

@@ -15,7 +15,7 @@ export const Item: NextPage<ItemProps> = ({task, selecionarTarefa}) => {
             return `Concluído em: ${moment(finishDate).format('DD/MM/yyyy')}`;
         }
 
-        return `Conclusão em: ${moment(finishDate).format('DD/MM/yyyy')}`;
+        return `Conclusão em: ${moment(finishPrevisionDate).format('DD/MM/yyyy')}`;
     }
 
     return (
